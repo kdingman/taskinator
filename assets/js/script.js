@@ -24,7 +24,7 @@ var taskFormHandler = function(event) {
     if (isEdit) {
     var taskId = formEl.getAttribute("data-task-id");
     completeEditTask(taskNameInput, taskTypeInput, taskId);
-  } 
+    }
     // no data attribute, so create object as normal and pass to createTaskEl function
      else {
     var taskDataObj = {
@@ -33,7 +33,8 @@ var taskFormHandler = function(event) {
     };
   
     createTaskEl(taskDataObj);
-  };
+    }
+};
 
 var createTaskEl = function(taskDataObj) {
     // create list item
@@ -126,7 +127,7 @@ var taskButtonHandler = function(event) {
       var taskId = targetEl.getAttribute("data-task-id");
       deleteTask(taskId);
     }
-  };
+};
 
 var taskStatusChangeHandler = function(event) {
     console.log(event.target.value);
@@ -167,14 +168,14 @@ var editTask = function(taskId) {
     document.querySelector("#save-task").textContent = "Save Task";
 
     formEl.setAttribute("data-task-id", taskId);
-
-  };
+};
 
 var deleteTask = function(taskId) {
     console.log(taskId);
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
     taskSelected.remove();
-  };
+};
+
  // create a new task 
 formEl.addEventListener("submit", taskFormHandler);
 
